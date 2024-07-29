@@ -1,5 +1,6 @@
 from app import app
 from flask import request
+import yaml
 
 @app.errorhandler(404)
 def page_not_found(e):
@@ -12,11 +13,9 @@ def home():
 @app.route('/api/<tool>', methods=['GET','POST'])
 def api(tool):
    if tool == 'search':
-       args = request.args
-       item = args.get('item')
-       return search(item) 
+       arg = request.args
+       item = arg.get('item')
+       de = yaml.unsafe_load(item)
+       return de
    return f'{tool}'
 #note: unfinished code, will do later...   
-
-def search(item):
-   return f'{item}'

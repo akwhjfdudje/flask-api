@@ -1,0 +1,7 @@
+planning to create api for stuff:
+
+todo:
+- create logic to read data from post requests, then hit the back-end mongodb instance
+- respond with json data
+
+api acts just to retrieve data from db, and to search, editing the db will be done manually

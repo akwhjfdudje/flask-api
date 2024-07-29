@@ -1,7 +1,8 @@
 #!/bin/bash
 app="docker.test"
-docker network create mongo-net
-docker build -t ${app} . 
+docker network create mongo-net --subnet=192.168.240.0/24
+docker build -t ${app} .
+#docker build -t mongo ../database
 docker run -d -p 127.0.0.1:56733:80 \
 	--name=${app} \
 	-v $PWD:/app ${app} \
@@ -10,6 +11,7 @@ docker run -d -p 127.0.0.1:56735:27017 \
 	--network mongo-net \
 	--name mongo \
 	--hostname mongo \
-       	mongo:latest
+       	-v /var/www/database:/database mongo
+	#mongo:latest
 
 docker network connect mongo-net ${app}
