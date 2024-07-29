@@ -48,19 +48,7 @@ def handle(option):
            return calls[i]
        else:
            abort(404)
-   '''
-   if options[0] == "" and request.method == "GET":
-       if len(options) == 1:
-           return all_posts()
-       if options[1] == "":
-           return all_posts()
-       if options[0] == "random":
-           return random()
-   if options[0] == "create":
-       return '', 204
-   else:
-       abort(404)
-    '''
+
 def all_posts():
     response = make_response(dumps(list(posts_col.find({}, {"_id":0}))))
     response.content_type = "application/json"
