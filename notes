@@ -1,5 +1,0 @@
-for security purposes, the api will only be able to retrieve posts from the database
-
-apparently theres no way to remove the main "Server" header in the requests, which i don't like but hey
-
-
