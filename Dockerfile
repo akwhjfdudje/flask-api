@@ -5,7 +5,3 @@ ENV STATIC_URL /static
 ENV STATIC_PATH /var/www/app/static
 COPY ./requirements.txt /var/www/requirements.txt
 RUN pip install -r /var/www/requirements.txt
-#RUN ./install-mongodb.sh
-#RUN export FLASK_ENV=development
-#RUN mongosh --file testing_script.js
-#RUN flask run --no-debugger --no-reload
